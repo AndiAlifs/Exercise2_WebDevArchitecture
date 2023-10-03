@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="biography" class="container">
+    <div id="alert-loc"></div>
+    <div class="row mt-3 w-100 bg-tertiary p-3" id="rowProfile">
+        <div class="col text-center" id="colProfile">
+        </div>
+    </div>
+    <div >
+        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalAdd"><i class="bi bi-plus"></i>
+            Tambah Dokumen</button>
+    </div>
+</section>
+<section id="gallery">
+    <div class="container mb-5">
+        <h1>Document Table</h1>
+        <div class="row row-cols-3" id="galleryRow">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Doc. Name</th>
+                    <th scope="col">Upload At</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+              </table>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- place modal here -->
+<!-- Modal ADD-->
+<div class="modal fade" id="modalAdd" tabindex="-1" aria-labelledby="modalAddLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- bagian toast -->
+            <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
+                <div class="toast-container p-3 top-0 start-0 " id="toastPlacement">
+                    <div class="toast text-bg-danger" id="liveToastAdd">
+                        <div class="toast-body" id="toast-body-add">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end bagian toast -->
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalAddLabel">Upload Document</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="add-form">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="file-part" class="form-label">Upload Document</label>
+                        <input type="file" class="form-control" id="file-part">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Edit-->
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalDeleteLabel">Delete Modal!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>Perhatian!!</h4>
+                <p>Apakah Anda yakin Menghapus File ini ?</p>
+            </div>
+            <form id="delete-form">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
